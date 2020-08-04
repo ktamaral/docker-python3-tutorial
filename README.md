@@ -14,7 +14,7 @@ Docker Compose
 ## Local Development Environment Setup Instructions
 
 ### 1: Clone the repository to a local directory
-git clone git@github.huit.harvard.edu:LTS/nrs-resolver-test-client.git
+git clone git@github.com:ktamaral/docker-python3-tutorial.git
 
 ### 2: Create a config file
 
