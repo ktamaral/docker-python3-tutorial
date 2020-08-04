@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+
+  docker-python3-tutorial:
+    container_name: docker-python3-tutorial
+    build:
+      context: .
+    tty: true
+    volumes:
+      - './app/:/home/appuser/'
+      - './logs/:/home/logs/'
