@@ -1,0 +1,2 @@
+hostname = 'test.example.com'
+max_rows = 100
