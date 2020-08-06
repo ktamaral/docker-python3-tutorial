@@ -34,11 +34,24 @@ from config import *
 
 *Note: The config file is specifically excluded in .gitignore and .dockerignore, since it may contain hostnames and credentials it should NOT ever be committed to a repository*
 
-### 3: Start Docker Compose
+### 3: Build image and run container
 
-##### START
+#### Build image with Docker Build
+```
+docker build -f Dockerfile -t docker-python3-tutorial .
+```
 
-This command builds all images and runs all containers specified in the docker-compose-local.yml configuration.
+#### Start a single container with Docker Run
+To run a single container individually run the docker run command. The docker run command must specify the volume mounts and port numbers. This command runs the container, mounts the app directory as a volume, and starts the interactive session.
+
+```
+docker run -it -v $(pwd)/app:/home/appuser/ -p 5000:5000 docker-python3-tutorial bash
+```
+
+Run the `ls` and `pwd` commands to check the directory structure in the container. The app directory on the local filesystem should have been mounted into the /home/appuser directory in the container and any changes made should be updated automatically. After the container exits, it is no longer running because there is no running process. A  docker container is designed to run a process and then exit once that process is complete.
+
+##### Start with Docker Compose
+ather than building an image and running containers individually, Docker Compose provides an easier way to specify volume mounts, port numbers, other configurations, and also allows orchestration of multiple containers simultaneously. This command builds all images and runs all containers specified in the docker-compose-local.yml configuration.
 
 ```
 docker-compose -f docker-compose-local.yml up -d

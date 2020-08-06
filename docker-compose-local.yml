@@ -10,3 +10,5 @@ services:
     volumes:
       - './app/:/home/appuser/'
       - './logs/:/home/logs/'
+    ports:
+      - '5000:5000'
