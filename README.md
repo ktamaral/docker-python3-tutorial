@@ -51,7 +51,7 @@ docker run -it -v $(pwd)/app:/home/appuser/ -p 5000:5000 docker-python3-tutorial
 Run the `ls` and `pwd` commands to check the directory structure in the container. The app directory on the local filesystem should have been mounted into the /home/appuser directory in the container and any changes made should be updated automatically. After the container exits, it is no longer running because there is no running process. A  docker container is designed to run a process and then exit once that process is complete.
 
 ##### Start with Docker Compose
-ather than building an image and running containers individually, Docker Compose provides an easier way to specify volume mounts, port numbers, other configurations, and also allows orchestration of multiple containers simultaneously. This command builds all images and runs all containers specified in the docker-compose-local.yml configuration.
+Instead of building an image and running containers individually, Docker Compose provides an easier way to specify volume mounts, port numbers, other configurations, and also allows orchestration of multiple containers simultaneously. This command builds all images and runs all containers specified in the docker-compose-local.yml configuration.
 
 ```
 docker-compose -f docker-compose-local.yml up -d
@@ -135,6 +135,14 @@ This command removes all stopped containers specified in the docker-compose-loca
 
 ```
 docker-compose -f docker-compose-local.yml rm -f
+```
+
+##### STOP AND REMOVE
+
+This command stops and removes all containers specified in the docker-compose-local.yml configuration. This command can be used in place of the 'stop' and 'rm' commands.
+
+```
+docker-compose -f docker-compose-local.yml down
 ```
 
 ## Docker Compose
